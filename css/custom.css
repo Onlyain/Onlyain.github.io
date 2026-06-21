@@ -1,0 +1,4 @@
+/* 加密文章：输入密码前隐藏评论框 */
+.hbe-input~.comments {
+  display: none;
+}
