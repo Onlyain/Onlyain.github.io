@@ -27,7 +27,12 @@
         if (overlay.parentNode) {
           overlay.parentNode.removeChild(overlay);
         }
-      }, 1000); // 与 CSS 拉开幕布的时间匹配
-    }, 1500);
+        // 强制刷新导航栏样式
+        var navbar = document.querySelector('.navbar');
+        if (navbar) {
+          navbar.style.transform = '';
+        }
+      }, 1000);
+    }, 2000);
   });
 })();
