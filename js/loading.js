@@ -1,5 +1,4 @@
 (function () {
-  // 禁止滚动
   document.documentElement.style.overflow = 'hidden';
 
   var overlay = document.createElement('div');
@@ -21,13 +20,11 @@
   window.addEventListener('load', function () {
     setTimeout(function () {
       overlay.classList.add('open');
-      // 动画完成，恢复滚动并移除遮罩
       setTimeout(function () {
         document.documentElement.style.overflow = '';
         if (overlay.parentNode) {
           overlay.parentNode.removeChild(overlay);
         }
-        // 强制刷新导航栏样式
         var navbar = document.querySelector('.navbar');
         if (navbar) {
           navbar.style.transform = '';
