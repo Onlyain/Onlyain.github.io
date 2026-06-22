@@ -1,0 +1,33 @@
+(function () {
+  // 禁止滚动
+  document.documentElement.style.overflow = 'hidden';
+
+  var overlay = document.createElement('div');
+  overlay.id = 'curtain-overlay';
+  overlay.innerHTML = `
+    <div class="curtain-left"></div>
+    <div class="curtain-right"></div>
+    <div class="curtain-loader">
+      <div class="curtain-rings">
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="ring ring-3"></div>
+      </div>
+      <div class="curtain-text">Loading...</div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      overlay.classList.add('open');
+      // 动画完成，恢复滚动并移除遮罩
+      setTimeout(function () {
+        document.documentElement.style.overflow = '';
+        if (overlay.parentNode) {
+          overlay.parentNode.removeChild(overlay);
+        }
+      }, 1000); // 与 CSS 拉开幕布的时间匹配
+    }, 1500);
+  });
+})();
