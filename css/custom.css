@@ -2,3 +2,9 @@
 .hbe-input~.comments {
   display: none;
 }
+
+.index-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
